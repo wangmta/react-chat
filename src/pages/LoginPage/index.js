@@ -1,5 +1,6 @@
 import React from 'react';
 import notification from '../../components/Notification';
+import Modal from '../../components/Modal';
 
 class LoginPage extends React.Component {
   constructor(props) {
@@ -42,6 +43,17 @@ class LoginPage extends React.Component {
       modal: { visible: true },
     });
     window.location.reload();
+  }
+
+  render() {
+    const { visible } = this.state.modal;
+    return (
+      <div className="login">
+        <Modal title="Notification" visible={visible} confirm={this.confirm} hasConfirm>
+          <p className="content">Login successfully.</p>
+        </Modal>
+      </div>
+    );
   }
 }
 

@@ -2,8 +2,9 @@ import React from 'react';
 import './style.scss';
 import classnames from 'classnames';
 
+// takes in a component as an argument, returns an React Component
 function ModalBase(Component) {
-  return props => {
+  return function(props) {
     const { visible = false, cancel, modalWrapperClassName } = props;
     return (
       <div className={classnames('modal', visible ? 'showModalBase' : 'hideModalBase')}>
@@ -14,8 +15,11 @@ function ModalBase(Component) {
               x
             </span>
           )}
+          <Component {...props} />
         </div>
       </div>
     );
   };
 }
+
+export default ModalBase;
