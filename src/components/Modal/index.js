@@ -39,24 +39,24 @@ confirmCancelRender.propTypes = {
   hasCancel: PropTypes.bool,
   hasConfirm: PropTypes.bool,
   cancel: PropTypes.func,
-  confirm: PropTypes.func,
+  confirm: PropTypes.func
 };
 
 confirmCancelRender.defaultProps = {
   hasCancel: false,
   hasConfirm: false,
   cancel: undefined,
-  confirm: undefined,
+  confirm: undefined
 };
 
 dialogRender.propTypes = {
   title: PropTypes.string,
-  children: PropTypes.node,
+  children: PropTypes.node
 };
 
-dialogRender.propTypes = {
+dialogRender.defaultProps = {
   title: '',
-  children: undefined,
+  children: undefined
 };
 
 const ModalDialogRender = ModalBase(dialogRender);

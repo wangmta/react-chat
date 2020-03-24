@@ -1,0 +1,20 @@
+.login {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+
+  *:focus {
+    outline: none;
+  }
+
+  .content {
+    padding: 30px 0px 10px;
+  }
+
+  #icon {
+    width: 60%;
+  }
+}

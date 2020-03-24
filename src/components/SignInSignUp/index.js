@@ -14,11 +14,8 @@ export default class SignInSignUp extends React.Component {
       password: '',
       showSpinner: true
     };
-  }
-
-  handleChange(event) {
-    const { target } = event;
-    this.setState({ [target.name]: target.value });
+    this.handleChange = this.handleChange.bind(this);
+    this.handleCLick = this.handleCLick.bind(this);
   }
 
   // The get syntax binds an object property to a function that will be called when that property is looked up.
@@ -60,6 +57,11 @@ export default class SignInSignUp extends React.Component {
     }
   }
 
+  handleChange(event) {
+    const { target } = event;
+    this.setState({ [target.name]: target.value });
+  }
+
   handleCLick() {
     this.props.setValue(this.state);
   }
@@ -76,7 +78,7 @@ export default class SignInSignUp extends React.Component {
     const loginClass = isLogin ? 'active' : 'inactive';
     const registerClass = isLogin ? 'inactive' : 'active';
     const linkUrl = isLogin ? '/signup' : '/login';
-    const buttonName = isLogin ? 'Sign Up' : 'Login';
+    const buttonName = isLogin ? 'Login' : 'Sign Up';
     const OAuthHref = `https://github.com/login/oauth/authorize?client_id=${this.clientId}`;
     return (
       <div className="form-content fade-in-down">

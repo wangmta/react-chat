@@ -32,19 +32,22 @@ class LoginPage extends React.Component {
     }
   }
 
-  setValue(value) {
-    const { name, password } = value;
+  // anonymous function will bind to LoginPage
+  setValue = componentState => {
+    const { name, password } = componentState;
+    // this === LoginPage
     this.setState({ name, password }, async () => {
       await this.login();
     });
-  }
+  };
 
-  confirm() {
+  // anonymous function will bind to LoginPage
+  confirm = () => {
     this.setState({
       modal: { visible: true }
     });
     window.location.reload();
-  }
+  };
 
   render() {
     const { visible } = this.state.modal;

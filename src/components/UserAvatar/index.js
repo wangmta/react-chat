@@ -14,6 +14,7 @@ const defaultColors = [
 ];
 
 function sumChars(str) {
+  let sum = 0;
   for (let i = 0; i < str.length; i += 1) {
     // The charCodeAt() method returns an integer between 0 and 65535 representing the UTF-16 code unit at the given index.
     sum += str.charCodeAt(i);
@@ -71,7 +72,7 @@ export default function UserAvatar(props) {
   return (
     <div
       className={classnames(className, isGray ? 'user-avatar gray' : 'user-avatar')}
-      style={inner}
+      style={innerStyle}
       onClick={clickAvatar}
     >
       {showLogo && (
