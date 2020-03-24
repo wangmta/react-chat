@@ -1,6 +1,7 @@
 import React from 'react';
 import notification from '../../components/Notification';
 import Modal from '../../components/Modal';
+import SignInSignUp from '../../components/SignInSignUp';
 
 class LoginPage extends React.Component {
   constructor(props) {
@@ -10,8 +11,8 @@ class LoginPage extends React.Component {
       name: '',
       password: '',
       modal: {
-        visible: false,
-      },
+        visible: false
+      }
     };
   }
 
@@ -40,7 +41,7 @@ class LoginPage extends React.Component {
 
   confirm() {
     this.setState({
-      modal: { visible: true },
+      modal: { visible: true }
     });
     window.location.reload();
   }
@@ -52,6 +53,7 @@ class LoginPage extends React.Component {
         <Modal title="Notification" visible={visible} confirm={this.confirm} hasConfirm>
           <p className="content">Login successfully.</p>
         </Modal>
+        <SignInSignUp setValue={this.setValue} isLogin />
       </div>
     );
   }
