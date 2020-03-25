@@ -27,6 +27,7 @@ export default class SignInSignUp extends React.Component {
 
   async gitHubLogin() {
     const href = window.location.href;
+    console.log(window.location);
     if (/\/login\?code/.test(href)) {
       const code = href.split('?code=')[1];
       Request.axiosRequest('post', '/api/v1/github_oauth', {
@@ -81,7 +82,7 @@ export default class SignInSignUp extends React.Component {
     const buttonName = isLogin ? 'Login' : 'Sign Up';
     const OAuthHref = `https://github.com/login/oauth/authorize?client_id=${this.clientId}`;
     return (
-      <div className="form-content fade-in-down">
+      <div className="form-content fadeInDown">
         {this.state.showSpinner && <Spinner />}
         <div className="chat-Logo">
           <img src="https://cdn.aermin.top/ghChatIcon.png" alt="ChatLogo" />

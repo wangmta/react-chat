@@ -7,4 +7,4 @@ import App from './router';
 
 ReactDom.render(<App />, document.getElementById('App'));
 
-// Request.axiosConfigInit();
+Request.axiosConfigInit();

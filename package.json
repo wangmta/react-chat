@@ -65,6 +65,7 @@
     "webpack-merge": "^4.2.2"
   },
   "dependencies": {
+    "@loadable/component": "^5.7.0",
     "axios": "^0.18.1",
     "classnames": "^2.2.6",
     "prop-types": "^15.6.1",

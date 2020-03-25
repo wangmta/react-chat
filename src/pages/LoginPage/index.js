@@ -2,6 +2,8 @@ import React from 'react';
 import notification from '../../components/Notification';
 import Modal from '../../components/Modal';
 import SignInSignUp from '../../components/SignInSignUp';
+import Request from '../../utils/request';
+import './style.scss';
 
 class LoginPage extends React.Component {
   constructor(props) {
@@ -27,6 +29,12 @@ class LoginPage extends React.Component {
       return;
     }
     try {
+      const res = await Request.axiosRequest('post', '/api/v1/login', { name, password });
+      if (res && res.success) {
+        this.setState({ modal: { visible: true } });
+      } else {
+        notification(res.message, 'error');
+      }
     } catch (error) {
       notification(error, 'error');
     }
@@ -52,7 +60,7 @@ class LoginPage extends React.Component {
   render() {
     const { visible } = this.state.modal;
     return (
-      <div className="login">
+      <div className="login-page">
         <Modal title="Notification" visible={visible} confirm={this.confirm} hasConfirm>
           <p className="content">Login successfully.</p>
         </Modal>
