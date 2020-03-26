@@ -2,6 +2,7 @@ import React from 'react';
 import { Route, Switch, BrowserRouter } from 'react-router-dom';
 import LoginPage from '../pages/LoginPage';
 import SignUpPage from '../pages/SignUpPage';
+import loadable from '@loadable/component';
 
 const FUNCTION_ROUTERS = [
   '/',
@@ -25,9 +26,8 @@ function MainView(props) {
 
   return (
     <div className={MainViewClassName}>
-      {/* <Route component={}></Route>
+      <Route component={loadable(() => import('../pages/TabsPage'))}></Route>
       <Route></Route>
-      <Route></Route> */}
     </div>
   );
 }
@@ -37,8 +37,16 @@ export default function App() {
     <BrowserRouter>
       <div className="layout-wrapper">
         <Switch>
-          <Route exact path="/login" component={LoginPage}></Route>
-          <Route exact path="/signup" component={SignUpPage}></Route>
+          <Route
+            exact
+            path="/login"
+            component={loadable(() => import('../pages/LoginPage'))}
+          ></Route>
+          <Route
+            exact
+            path="/signup"
+            component={loadable(() => import('../pages/SignUpPage'))}
+          ></Route>
         </Switch>
       </div>
     </BrowserRouter>
