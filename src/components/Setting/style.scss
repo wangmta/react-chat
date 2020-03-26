@@ -1,0 +1,69 @@
+@import '../../assets/base.scss';
+@import '~rc-switch/assets/index.css';
+
+.setting {
+  width: 100%;
+  height: 100%;
+  padding-top: 100px;
+  text-align: center;
+  position: relative;
+  color: $gray;
+  .notification-config {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .rc-switch-checked {
+      border: 1px solid $blue;
+      background-color: $blue;
+    }
+  }
+  .github-star-render {
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #9baec8;
+    height: 26px;
+    margin-left: 20px;
+    position: absolute;
+    right: 20px;
+    top: 30px;
+    cursor: pointer;
+    .github-icon {
+      height: 30px;
+      font-size: 28px;
+      padding-right: 4px;
+      padding-left: 4px;
+    }
+    .star-title {
+      font-size: 12px;
+      height: 26px;
+      padding-right: 4px;
+      padding-left: 4px;
+      line-height: 26px;
+      color: #fff;
+      background-color: #5893d4;
+    }
+  }
+  .user-info p {
+    font-size: 12px;
+    padding-top: 20px;
+  }
+  .name {
+    font-size: 18px;
+    padding-top: 20px;
+  }
+  .base-button {
+    position: relative;
+    font-size: 12px;
+    margin-top: 80px;
+  }
+  .contact,
+  .contact a {
+    text-decoration: none;
+    margin: 40px 0;
+    font-size: 14px;
+    cursor: pointer;
+    display: block;
+  }
+}
