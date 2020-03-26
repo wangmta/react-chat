@@ -1,6 +1,7 @@
 import React from 'react';
 import { Route, Switch, BrowserRouter } from 'react-router-dom';
 import LoginPage from '../pages/LoginPage';
+import SignUpPage from '../pages/SignUpPage';
 
 const FUNCTION_ROUTERS = [
   '/',
@@ -37,6 +38,7 @@ export default function App() {
       <div className="layout-wrapper">
         <Switch>
           <Route exact path="/login" component={LoginPage}></Route>
+          <Route exact path="/signup" component={SignUpPage}></Route>
         </Switch>
       </div>
     </BrowserRouter>

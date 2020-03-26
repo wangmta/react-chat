@@ -1,14 +1,13 @@
-import React from 'react';
-import notification from '../../components/Notification';
-import Modal from '../../components/Modal';
-import SignInSignUp from '../../components/SignInSignUp';
-import Request from '../../utils/request';
 import './style.scss';
+import React from 'react';
+import Request from '../../utils/request';
+import Modal from '../../components/Modal';
+import notification from '../../components/Notification';
+import SignInSignUp from '../../components/SignInSignUp';
 
-class LoginPage extends React.Component {
+export default class SignUpPage extends React.Component {
   constructor(props) {
     super(props);
-
     this.state = {
       name: '',
       password: '',
@@ -18,7 +17,7 @@ class LoginPage extends React.Component {
     };
   }
 
-  async login() {
+  register = async () => {
     const { name, password } = this.state;
     if (!/[a-zA-Z0-9_]+$/.test(name)) {
       notification('user name can only take alphanumeric value plus underscore.', 'warn');
@@ -29,9 +28,9 @@ class LoginPage extends React.Component {
       return;
     }
     try {
-      const res = await Request.axiosRequest('post', '/api/v1/login', { name, password });
-      console.log(res);
+      const res = await Request.axiosRequest('post', '/api/v1/signup', { name, password });
       if (res && res.success) {
+        // modal
         this.setState({ modal: { visible: true } });
       } else {
         notification(res.message, 'error');
@@ -41,37 +40,33 @@ class LoginPage extends React.Component {
       let msg = !error.timeout ? 'INTERNET CONNECTION ERR' : error;
       notification(msg, 'error');
     }
-  }
+  };
 
-  // anonymous function will bind to LoginPage
   setValue = componentState => {
     // get name, password from, SignInSignUp line 67
     const { name, password } = componentState;
-    // this === LoginPage
     this.setState({ name, password }, async () => {
-      await this.login();
+      await this.register();
     });
   };
 
-  // anonymous function will bind to LoginPage
   confirm = () => {
     this.setState({
-      modal: { visible: true }
+      visible: false
     });
-    window.location.reload();
+
+    this.props.history.push('/login');
   };
 
   render() {
     const { visible } = this.state.modal;
     return (
-      <div className="login-page">
+      <div className="signup">
         <Modal title="Notification" visible={visible} confirm={this.confirm} hasConfirm>
-          <p className="content">Login successfully.</p>
+          <p className="content">Registration Successful.</p>
         </Modal>
-        <SignInSignUp setValue={this.setValue} isLogin />
+        <SignInSignUp setValue={this.setValue} isLogin={false} />
       </div>
     );
   }
 }
-
-export default LoginPage;
