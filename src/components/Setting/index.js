@@ -5,7 +5,7 @@ import Switch from 'rc-switch';
 import Button from '../Button';
 import Modal from '../Modal';
 import Axios from 'axios';
-import { GLOBAL_SETTINGS } from '../../pages/SettingPage/settingRecuder';
+import { GLOBAL_SETTINGS } from '../../pages/SettingPage/settingReducer';
 import './style.scss';
 
 function openRepoUrl(history) {
