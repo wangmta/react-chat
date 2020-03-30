@@ -1,0 +1,45 @@
+@import "../../assets/base.scss";
+
+.page-404 {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  .container {
+    width: 50%;
+  }
+
+  img {
+    width: 100%;
+  }
+
+  .bg-404 {
+    background-image: url(https://cdn.aermin.top/ghchat404.gif);
+    height: 400px;
+    background-position: center;
+  }
+
+
+  .bg-404 h1 {
+    font-size: 80px;
+  }
+
+  .bg-404 h3 {
+    font-size: 80px;
+  }
+
+  .link {
+    color: #fff;
+    padding: 10px 20px;
+    background: $blue;
+    margin: 20px 0;
+    display: inline-block;
+    text-decoration: none
+  }
+
+  .content-box {
+    margin-top: -50px;
+  }
+}
